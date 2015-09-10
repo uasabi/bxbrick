@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="initial-scale=1"/>
+  <title>{% block title %}Brick by Brick{% endblock %}</title>
+  <link rel="stylesheet" href="/assets/bundle.css">
+</head>
+<body>
+
+  {% block content %}{% endblock %}
+
+  <script src="/assets/bundle.js"></script>
+  <script>
+    require('ga')('{{ gaId }}');
+  </script>
+
+</body>
+</html>
