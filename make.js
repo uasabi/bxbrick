@@ -4,11 +4,13 @@ var fs = require('fs');
 var CleanCSS = require('clean-css');
 var watch = fs.watch;
 
-target['stylesheets:build'] = function (isDevelopment) {
+target['stylesheets:build'] = stylesheetsBuild;
+
+function stylesheetsBuild (isDevelopment) {
   var css = new CleanCSS({
     sourceMap: !!isDevelopment,
     processImport: true,
-    relativeTo: 'assets/stylesheets/'
+    relativeTo: __dirname + '/assets/stylesheets/'
   }).minify(cat(['assets/stylesheets/style.css'].concat(
     (!!isDevelopment) ? 'assets/stylesheets/responsive-debug.css' : []
   )));
@@ -24,7 +26,7 @@ target['stylesheets:build'] = function (isDevelopment) {
 target['stylesheets:watch'] = function () {
   watch('assets/stylesheets/', function (event, filename) {
     console.log('[css:watch]');
-    target['stylesheets:build'](true);
+    stylesheetsBuild.call(null, true);
   });
 
   target['stylesheets:build'](true);
