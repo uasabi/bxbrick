@@ -1,7 +1,7 @@
-var express = require('express');
-var app = express();
-var nunjucks = require('nunjucks');
-var resolve = require('path').resolve;
+const express = require('express');
+const app = express();
+const nunjucks = require('nunjucks');
+const resolve = require('path').resolve;
 
 nunjucks.configure([
   resolve(__dirname, './views/'),
@@ -13,8 +13,8 @@ nunjucks.configure([
 
 app.use('/assets', express.static('assets'));
 
-app.get('/', function (req, res) {
-  res.render('landing.html');
-});
+app.get('/', (req, res) => res.render('landing.html'));
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Ready: http://localhost:${process.env.PORT || 3000}`);
+});
