@@ -8,7 +8,7 @@ nunjucks.configure([
   resolve(__dirname, './assets/icons/')
 ], {
   autoescape : true,
-  watch: true
+  watch: (process.env.NODE_ENV === 'production')
 }).express(app);
 
 app.use('/assets', express.static('assets'));
