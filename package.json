@@ -12,12 +12,12 @@
   "license": "ISC",
   "dependencies": {
     "bower": "^1.5.2",
-    "browserify": "^11.0.1",
-    "clean-css": "^3.4.1",
+    "browserify": "^14.4.0",
+    "clean-css": "^4.1.8",
     "express": "^4.13.3",
-    "nunjucks": "^2.0.0",
-    "shelljs": "^0.5.3",
-    "uglifyify": "^3.0.1",
+    "nunjucks": "^3.0.1",
+    "shelljs": "^0.7.8",
+    "uglifyify": "^4.0.3",
     "watchify": "^3.4.0"
   },
   "devDependencies": {
